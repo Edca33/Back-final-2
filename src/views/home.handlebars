@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar con Imagen</title>
+  <style>
+    .chat-icon {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 65px;
+      height: auto;
+      z-index: 1000;
+      cursor: pointer;
+    }
+
+.chat-container {
+    position: fixed;
+    bottom: 1px;
+    right: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out; 
+}
+.chat-text {
+    font-size: 2rem;
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out; 
+}
+
+.chat-container:hover {
+    transform: translateY(-20px);
+}
+
+.chat-container:hover .chat-text {
+    opacity: 1;
+}
+
+.Mario{
+        position: fixed;
+      bottom: 10px;
+      right: 1812px;
+      width: 100px;
+      height: auto;
+      z-index: 1000;
+      cursor: pointer;
+}
+
+  </style>
+</head>
+
+<body>
+
+  
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="/" style="font-size: 35px;">PlayMatrix</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/flipando" style="font-size: 35px;">Flipando</a>
+        </li>
+        <li>
+          <a href="/products" style="margin-left: 35px; margin-bottom: 8px;" class="sr-only">Nuestros juegos!!</a>
+        </li>
+      </ul>
+    </div>
+    <li>
+      <a href="/realtimeproducts" style="margin-right: 250px; margin-bottom: 8px;" class="sr-only"> Ver juegos en tiempo real!</a>
+    </li>
+  </nav>
+  <div class="chat-container">
+    <span class="chat-text">Chatea con nosotros</span>
+    <a href="/chats"><img src="img/chat3.png" class="chat-icon" alt="Chat Icon"></a>
+  </div>
+  
+
+  <ul>
+    {{#each products}}
+    <div class="card" style="width: 18rem;" data-id="{{this.id}}">
+      <img src="../img/rgb_gb_2560x1600.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{this}}</h5>
+        <p class="card-text"></p>
+        <a href="/producto" class="btn btn-primary">Ve a ver el producto</a>
+      </div>
+    </div>
+    {{/each}}
+  </ul>
+
+  <!-- Otros elementos -->
+  <span id="span1"></span><span id="span2"></span><span id="span3"></span><span id="span4"></span>
+
+
+
+<a href="https://supermario-game.com/es" ><img src="https://i.gifer.com/origin/ac/acf3abb6da430dd78cc99f925bb52d49_w200.gif" class="Mario" alt=""></a>
+
+<script>
+  document.querySelector('.chat-container').addEventListener('mouseover', () => {
+    document.querySelector('.chat-text').style.display = 'block';
+});
+
+document.querySelector('.chat-container').addEventListener('mouseout', () => {
+    document.querySelector('.chat-text').style.display = 'none';
+});
+</script>
+
+
+</body>
+
+</html>
